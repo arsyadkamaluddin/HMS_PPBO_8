@@ -7,12 +7,22 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
+import javax.swing.*;
 
 public class oldCustDetails extends javax.swing.JFrame {
 
-     ResultSet rs=null; 
-     Statement statement=null;
-       DbConnect con=null;
+    ResultSet rs=null; 
+    Statement statement=null;
+    DbConnect con=null;
+    private JButton jButton1;
+    private JButton jButton2;
+    private JButton jButton3;
+    private JButton jButton4;
+    private JLabel jLabel2;
+    private JLabel jLabel3;
+    private JScrollPane jScrollPane1;
+    private JTable tb1;
+    private JTextField tf1;
 
 
     public oldCustDetails() throws SQLException  {
@@ -33,7 +43,7 @@ tb1.setModel(DbUtils.resultSetToTableModel(rs));
 
     
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
@@ -73,14 +83,14 @@ tb1.setModel(DbUtils.resultSetToTableModel(rs));
         ));
         jScrollPane1.setViewportView(tb1);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel3.setForeground(new java.awt.Color(0, 204, 204));
         jLabel3.setText("ENTER CUSTOMER ID:");
 
-        tf1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tf1.setFont(new java.awt.Font("Tahoma", 0, 12));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14));
         jButton1.setForeground(new java.awt.Color(0, 204, 204));
         jButton1.setText("SEARCH");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +100,7 @@ tb1.setModel(DbUtils.resultSetToTableModel(rs));
         });
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14));
         jButton2.setForeground(new java.awt.Color(0, 204, 204));
         jButton2.setText("BACK");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -100,7 +110,7 @@ tb1.setModel(DbUtils.resultSetToTableModel(rs));
         });
 
         jButton3.setBackground(new java.awt.Color(0, 0, 0));
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 14));
         jButton3.setForeground(new java.awt.Color(0, 204, 204));
         jButton3.setText("EXIT");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +120,7 @@ tb1.setModel(DbUtils.resultSetToTableModel(rs));
         });
 
         jButton4.setBackground(new java.awt.Color(0, 0, 0));
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Tahoma", 0, 14));
         jButton4.setForeground(new java.awt.Color(0, 204, 204));
         jButton4.setText("ShowAll");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -162,20 +172,20 @@ tb1.setModel(DbUtils.resultSetToTableModel(rs));
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
 home o=new home();
                     o.setVisible(true);
                    o.setLocation(this.getX(),this.getY());
-                   this.dispose();            // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+                   this.dispose();
+    }
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
 System.exit(0)      ;
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
   try{
 String query="select * from cd_old where cust_id='"+ tf1.getText()+"'";
 ResultSet rs=statement.executeQuery(query); 
@@ -192,25 +202,21 @@ if(rs.next())
             }  
                                        
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
          try {
              update_table();
          } catch (SQLException ex) {
              Logger.getLogger(oldCustDetails.class.getName()).log(Level.SEVERE, null, ex);
          }
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -229,9 +235,6 @@ if(rs.next())
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(oldCustDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -243,15 +246,5 @@ if(rs.next())
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tb1;
-    private javax.swing.JTextField tf1;
-    // End of variables declaration//GEN-END:variables
+    
 }
