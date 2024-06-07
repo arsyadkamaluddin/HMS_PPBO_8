@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+
 public class Billing extends javax.swing.JFrame {
 ResultSet rs=null; 
      Statement statement=null;
