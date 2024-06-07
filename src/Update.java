@@ -647,10 +647,6 @@ catch(Exception e)
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
      System.exit(0);
     }
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
 
         try {
@@ -669,9 +665,7 @@ catch(Exception e)
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Update.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-
-
-        
+   
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -681,9 +675,5 @@ catch(Exception e)
                 }
             }
         });
-    }
-
-    
-
-    
+    }   
 }

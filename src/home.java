@@ -268,9 +268,6 @@ System.exit(0);
             
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
 
         try {
@@ -290,16 +287,10 @@ System.exit(0);
             java.util.logging.Logger.getLogger(home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
     
-
-        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new home().setVisible(true);
             }
         });
     }
-
-    
-
-
 }

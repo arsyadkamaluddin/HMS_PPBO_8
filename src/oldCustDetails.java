@@ -211,10 +211,6 @@ if(rs.next())
              Logger.getLogger(oldCustDetails.class.getName()).log(Level.SEVERE, null, ex);
          }
     }
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
 
         try {
@@ -223,9 +219,7 @@ if(rs.next())
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
 }
-}
-                
-            
+} 
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(oldCustDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -245,6 +239,4 @@ if(rs.next())
             }
         });
     }
-
-    
 }
