@@ -37,7 +37,7 @@ public class oldCustDetails extends javax.swing.JFrame {
     void update_table() throws SQLException
     {
     
-rs=statement.executeQuery("select * from cd_old order by cust_id asc;");   
+rs=statement.executeQuery("SELECT * FROM CD_OLD ORDER BY CUST_ID ASC;");   
 tb1.setModel(DbUtils.resultSetToTableModel(rs));
     }
 
@@ -59,7 +59,7 @@ tb1.setModel(DbUtils.resultSetToTableModel(rs));
         jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("PAST CUSTOMERS");
+        setTitle("CUSTOMER LAMA");
         setAlwaysOnTop(true);
 
         tb1.setModel(new javax.swing.table.DefaultTableModel(
@@ -78,21 +78,21 @@ tb1.setModel(DbUtils.resultSetToTableModel(rs));
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "NAME", "PHONE", "ADDRESS", "CHECK IN", "CHECK OUT", "Room no."
+                "ID", "NAMA", "TELEPON", "ALAMAT", "CHECK IN", "CHECK OUT", "Nomor Kamar"
             }
         ));
         jScrollPane1.setViewportView(tb1);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel3.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel3.setText("ENTER CUSTOMER ID:");
+        jLabel3.setText("MASUKKAN ID PELANGGAN:");
 
         tf1.setFont(new java.awt.Font("Tahoma", 0, 12));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14));
         jButton1.setForeground(new java.awt.Color(0, 204, 204));
-        jButton1.setText("SEARCH");
+        jButton1.setText("CARI");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -102,7 +102,7 @@ tb1.setModel(DbUtils.resultSetToTableModel(rs));
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 14));
         jButton2.setForeground(new java.awt.Color(0, 204, 204));
-        jButton2.setText("BACK");
+        jButton2.setText("KEMBALI");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -112,7 +112,7 @@ tb1.setModel(DbUtils.resultSetToTableModel(rs));
         jButton3.setBackground(new java.awt.Color(0, 0, 0));
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 14));
         jButton3.setForeground(new java.awt.Color(0, 204, 204));
-        jButton3.setText("EXIT");
+        jButton3.setText("KELUAR");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -122,7 +122,7 @@ tb1.setModel(DbUtils.resultSetToTableModel(rs));
         jButton4.setBackground(new java.awt.Color(0, 0, 0));
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 14));
         jButton4.setForeground(new java.awt.Color(0, 204, 204));
-        jButton4.setText("ShowAll");
+        jButton4.setText("Tampilkan Semua");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -187,7 +187,7 @@ System.exit(0)      ;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
   try{
-String query="select * from cd_old where cust_id='"+ tf1.getText()+"'";
+String query="SELECT * FROM CD_OLD WHERE CUST_ID='"+ tf1.getText()+"'";
 ResultSet rs=statement.executeQuery(query); 
 DefaultTableModel model = (DefaultTableModel) tb1.getModel();
 model.setRowCount(0);
@@ -200,8 +200,6 @@ if(rs.next())
             {
                 System.out.println(e);
             }  
-                                       
-
     }
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {

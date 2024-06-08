@@ -9,8 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.Timer;
+
 import net.proteanit.sql.DbUtils;
 import javax.swing.*;
 
@@ -75,7 +74,7 @@ public class Update extends javax.swing.JFrame {
     }
     void update_table() throws SQLException
     {
-    rs=statement.executeQuery("select * from cust_details");   
+    rs=statement.executeQuery("SELECT * FROM CUST_DETAILS");   
     tb1.setModel(DbUtils.resultSetToTableModel(rs));
     }
 
@@ -112,12 +111,12 @@ public class Update extends javax.swing.JFrame {
         tb1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Update Customer Details");
+        setTitle("Perbarui Detail Pelanggan");
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 14));
         jButton2.setForeground(new java.awt.Color(0, 204, 204));
-        jButton2.setText("EXIT");
+        jButton2.setText("KELUAR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -127,17 +126,17 @@ public class Update extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(0, 0, 0));
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 14));
         jButton3.setForeground(new java.awt.Color(0, 204, 204));
-        jButton3.setText("CANCEL / BACK");
+        jButton3.setText("BATAL / KEMBALI");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)), "Change Room", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 3, 14), new java.awt.Color(255, 255, 255)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)), "Ubah Kamar", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 3, 14), new java.awt.Color(255, 255, 255)));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 13)); 
-        jLabel7.setText("No. of bed");
+        jLabel7.setText("Jumlah tempat tidur");
 
         jTextField5.setFont(new java.awt.Font("Dialog", 1, 18)); 
 
@@ -174,14 +173,14 @@ public class Update extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 13));
-        jLabel6.setText("Room type");
+        jLabel6.setText("Tipe Kamar");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 13));
-        jLabel8.setText("New Room Allocated:");
+        jLabel8.setText("Kamar Baru yang Dialokasikan:");
 
         jButton4.setFont(new java.awt.Font("Dialog", 1, 14));
         jButton4.setForeground(new java.awt.Color(51, 153, 255));
-        jButton4.setText("Change");
+        jButton4.setText("Ubah");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -251,7 +250,7 @@ public class Update extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 102)), "personal details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 3, 14), new java.awt.Color(255, 255, 255)));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 13));
-        jLabel5.setText("Address");
+        jLabel5.setText("Alamat");
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 14));
         jButton1.setForeground(new java.awt.Color(51, 153, 255));
@@ -263,10 +262,10 @@ public class Update extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 13));
-        jLabel4.setText("PHONE");
+        jLabel4.setText("TELEPON");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 13));
-        jLabel3.setText("NAME");
+        jLabel3.setText("NAMA");
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 14));
         jLabel1.setForeground(new java.awt.Color(51, 102, 255));
@@ -336,7 +335,7 @@ public class Update extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "CUST iD", "NAME", "PHONE", "ADDRESS", "CHECK-IN", "ROOM NO."
+                "CUST ID", "NAMA", "TELEPON", "ALAMAT", "CHECK-IN", "NO. KAMAR"
             }
         ));
         tb1.getTableHeader().setReorderingAllowed(false);
@@ -423,7 +422,7 @@ String roomtype()
 int getRoom()
 {
  try{  
-String q="select room_no from room where room_type='"+roomtype()+"' and no_of_bed="+bedno()+" and room_status='available';";
+String q="select room_no from room where room_type='"+roomtype()+"' AND NO_OF_BED="+bedno()+" AND ROOM_STATUS='AVAILABLE';";
 ResultSet rs1=statement.executeQuery(q);     
 if(rs1.next())
             return rs1.getInt(1);
@@ -453,10 +452,10 @@ void checkEmpty1()
       
 }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-                String q1="select cust_id from cust_details where cust_id='"+jTextField1.getText()+"'";
-                String q2="update cust_details set name='"+jTextField2.getText()+"' where cust_id='"+jTextField1.getText()+"'";
-                String q3="update cust_details set phone='"+jTextField3.getText()+"' where cust_id='"+jTextField1.getText()+"'";
-                String q4="update cust_details set address='"+jTextField4.getText()+"' where cust_id='"+jTextField1.getText()+"'";
+                String q1="SELECT CUST_ID FROM CUST_DETAILS WHERE CUST_ID='"+jTextField1.getText()+"'";
+                String q2="UPDATE CUST_DETAILS SET NAME='"+jTextField2.getText()+"' WHERE CUST_ID='"+jTextField1.getText()+"'";
+                String q3="UPDATE CUST_DETAILS SET PHONE='"+jTextField3.getText()+"' WHERE CUST_ID='"+jTextField1.getText()+"'";
+                String q4="UPDATE CUST_DETAILS SET ADDRESS='"+jTextField4.getText()+"' WHERE CUST_ID='"+jTextField1.getText()+"'";
    isCustidPresent();             
    checkEmpty1();             
    try{
@@ -488,7 +487,7 @@ void checkEmpty1()
                                                                                                                            try{
                                                                                                                                statement.executeUpdate(q3);
                                                                                                                            } catch(Exception e){
-                                                                                                                                   JOptionPane.showMessageDialog(null,"PLEASE ENTER A VALID PHONE NO.");
+                                                                                                                                   JOptionPane.showMessageDialog(null,"HARAP MASUKKAN NOMOR TELEPON YANG VALID.");
                                                                                                                                    f=0;
                                                                                                                            }
                                                                                                                            if(f==1)
@@ -516,7 +515,7 @@ void checkEmpty1()
                                                                                                                        } 
                                                 }         
                                                      else {
-             jLabel1.setText("Nothing updated. Enter something to update!");
+             jLabel1.setText("Tidak ada yang diperbarui. Masukkan sesuatu untuk diperbarui!");
                           t1.setRepeats(false);
                          t1.start();
 
@@ -524,7 +523,7 @@ void checkEmpty1()
                                                 }
                                                 else
                                                 {
-                                                    jTextField1.setText("Cust-Id does not exist !");
+                                                    jTextField1.setText("Cust-Id tidak ada !");
                                                     jTextField1.setBackground(Color.LIGHT_GRAY);
                                                                jTextField1.setForeground(Color.RED);
                                                                    t2.setRepeats(false);
@@ -536,14 +535,14 @@ void checkEmpty1()
       
     }
        else{
-             JOptionPane.showMessageDialog(null,"PLEASE ENTER A CUSTOMER-ID.");
+             JOptionPane.showMessageDialog(null,"HARAP MASUKKAN CUSTOMER-ID.");
        }
    }
     catch(Exception e){
         e.printStackTrace();
     System.out.print(e);
 }
-   
+
     }
     
 void checkempty2()
@@ -562,10 +561,10 @@ flag2=1;
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
 
 
-String q0="select cust_id from cust_details where cust_id='"+jTextField1.getText()+"'";
-String q1="select room_no from room where room_type='"+roomtype()+"' and no_of_bed="+bedno()+" and room_status='available';";
-String q2="select room_no from cust_details where cust_id='"+jTextField1.getText()+"'";
-String q3="update room set room_status='available' where room_no IN ("+q2+");";
+String q0="SELECT CUST_ID FROM CUST_DETAILS WHERE CUST_ID='"+jTextField1.getText()+"'";
+String q1="SELECT ROOM_NO FROM ROOM WHERE ROOM_TYPE='"+roomtype()+"' AND NO_OF_BED="+bedno()+" AND ROOM_STATUS='AVAILABLE';";
+String q2="SELECT ROOM_NO FROM CUST_DETAILS WHERE CUST_ID='"+jTextField1.getText()+"'";
+String q3="UPDATE ROOM SET ROOM_STATUS='AVAILABLE' WHERE ROOM_NO IN ("+q2+");";
  isCustidPresent();    
 checkempty2();
   try{ 
@@ -581,11 +580,11 @@ ResultSet rs1=statement.executeQuery(q1);
 if(rs1.next()){
                 int r=rs1.getInt(1);
               statement.executeUpdate(q3);
-               statement.executeUpdate("update cust_details set room_no="+r+" where cust_id='"+jTextField1.getText()+"';");
-               statement.executeUpdate("update room set room_status='unavailable' where room_no="+r+";");
+               statement.executeUpdate("UPDATE CUST_DETAILS SET ROOM_NO="+r+" WHERE CUST_ID='"+jTextField1.getText()+"';");
+               statement.executeUpdate("(\"UPDATE ROOM SET ROOM_STATUS='unavailable' WHERE ROOM_NO="+r+";");
       
              jTextField5.setText(String.valueOf(r));
-            jLabel9.setText("Room changed successfully!");
+            jLabel9.setText("Kamar berhasil diubah!");
            
             count++;  
                try {
@@ -600,7 +599,7 @@ if(rs1.next()){
              
 }      
 else{
- jTextField5.setText("No Rooms Available.");
+ jTextField5.setText("Tidak ada Kamar yang Tersedia.");
   jTextField5.setBackground(java.awt.Color.GRAY);
 jTextField5.setForeground(java.awt.Color.red);
 
@@ -608,7 +607,7 @@ jTextField5.setForeground(java.awt.Color.red);
              }
               else
              {
-                 jTextField1.setText("Cust-Id does not exist !");
+                 jTextField1.setText("Cust-Id tidak ada !");
                  jTextField1.setBackground(Color.LIGHT_GRAY);
                             jTextField1.setForeground(Color.RED);
                                 t2.setRepeats(false);
@@ -618,17 +617,17 @@ jTextField5.setForeground(java.awt.Color.red);
              }
       }
       else{
-          jLabel9.setText("please select all the options.!");
+          jLabel9.setText("Harap pilih semua opsi.!");
                           t1.setRepeats(false);
                          t1.start();
       }
     }  
   else{
-             JOptionPane.showMessageDialog(null,"PLEASE ENTER A CUSTOMER-ID.");
+             JOptionPane.showMessageDialog(null,"HARAP MASUKKAN CUSTOMER-ID.");
        }
   }
       else{
-          JOptionPane.showMessageDialog(null,"CANNOT CHANGE ROOMs MORE THAN TWICE.");
+          JOptionPane.showMessageDialog(null,"TIDAK BISA MENGUBAH KAMAR LEBIH DARI DUA KALI.");
       }
   }    
 catch(Exception e)

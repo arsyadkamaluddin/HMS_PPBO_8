@@ -38,13 +38,13 @@ public class home extends JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("HOME");
+        setTitle("BERANDA");
         setAlwaysOnTop(true);
 
         jButton3.setBackground(new java.awt.Color(0, 0, 0));
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 14));
         jButton3.setForeground(new java.awt.Color(0, 204, 204));
-        jButton3.setText("ROOM DETAILS");
+        jButton3.setText("DETAIL KAMAR");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -79,7 +79,7 @@ public class home extends JFrame {
         jButton7.setBackground(new java.awt.Color(0, 0, 0));
         jButton7.setFont(new java.awt.Font("Tahoma", 0, 14));
         jButton7.setForeground(new java.awt.Color(0, 204, 204));
-        jButton7.setText("UPDATE CUSTOMER DETAILS");
+        jButton7.setText("PERBARUI DETAIL PELANGGAN");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -99,7 +99,7 @@ public class home extends JFrame {
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14));
         jButton1.setForeground(new java.awt.Color(0, 204, 204));
-        jButton1.setText("EXIT");
+        jButton1.setText("KELUAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -109,7 +109,7 @@ public class home extends JFrame {
         jComboBox1.setBackground(new java.awt.Color(0, 0, 0));
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 14));
         jComboBox1.setForeground(new java.awt.Color(0, 255, 255));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT...", "CURRENT CUSTOMERS", "OLD CUSTOMERS" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PILIH...", "PELANGGAN SAAT INI", "PELANGGAN LAMA" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -119,7 +119,7 @@ public class home extends JFrame {
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel2.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel2.setText("VIEW CUSTOMER DETAILS");
+        jLabel2.setText("LIHAT DETAIL PELANGGAN");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
